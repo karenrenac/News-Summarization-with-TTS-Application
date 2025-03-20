@@ -1,0 +1,8 @@
+streamlit
+requests
+gTTS
+nltk
+sumy
+sentence-transformers
+transformers
+flask
