@@ -34,6 +34,7 @@ pip install -r requirements.txt
 uvicorn api:app --reload
 ```
 Visit http://localhost:8000/docs to view the interactive API documentation (Swagger UI).
+
 4. Run the Frontend (Streamlit):
 ```
 streamlit run app.py
