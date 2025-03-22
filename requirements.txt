@@ -6,3 +6,4 @@ sumy
 sentence-transformers
 transformers
 flask
+uvicorn
