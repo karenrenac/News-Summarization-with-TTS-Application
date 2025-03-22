@@ -5,10 +5,13 @@ import itertools
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 import os
-#model = SentenceTransformer('all-MiniLM-L6-v2')
 
+# Load Sentence Transformer model from local directory
 model_path = os.path.join(os.path.dirname(__file__), "..", "hf_model")
 model = SentenceTransformer(model_path)
+
+# Load Sentence Transformer model directly from Hugging Face
+#model = SentenceTransformer('all-MiniLM-L6-v2')
 
 def extract_topics(text, top_n=3):
     """

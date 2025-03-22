@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 import os
 
-# Load model and tokenizer
+# Load model and tokenizer from local directory
 BASE_PATH = os.path.join(os.path.dirname(__file__), "..", "hf_model")
 
 TOKENIZER_PATH = os.path.join(BASE_PATH, "tokenizer")
@@ -9,6 +9,14 @@ MODEL_PATH = os.path.join(BASE_PATH, "model")
 
 tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+
+'''
+# Load model and tokenizer directly from Hugging Face
+MODEL_NAME = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
+'''
 
 # Create pipeline
 sentiment_pipeline = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
