@@ -1,0 +1,13 @@
+streamlit
+requests
+gTTS
+nltk
+sumy
+sentence-transformers
+transformers
+flask
+uvicorn
+fastapi
+beautifulsoup4
+feedparser
+torch

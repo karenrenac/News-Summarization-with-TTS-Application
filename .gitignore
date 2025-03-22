@@ -1,0 +1,23 @@
+# Virtual environment
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE junk
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Downloaded files
+download.py
+test.py
+
+#pre downloaded models
+hf_model/
+utils/nltk_data/
