@@ -35,7 +35,7 @@ def test():
 def home(company_name: str = None):
     if company_name:
         return {"message": f"Company Name: {company_name}"}
-    return {"message": "✅News Sentiment Analysis API is up and running."}
+    return {"message": "News Sentiment Analysis API is up and running."}
 
 @app.post("/news")
 def fetch_news(request: CompanyRequest):

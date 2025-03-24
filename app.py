@@ -3,7 +3,10 @@
 import streamlit as st
 import requests
 import base64
-API_BASE_URL = "http://127.0.0.1:8000"  # Update to your deployed backend URL on Hugging Face Spaces
+
+API_BASE_URL = "http://127.0.0.1:8000" 
+#API_BASE_URL = "https://karenrena-newslytics-api.hf.space"  # Update to your deployed backend URL on Hugging Face Spaces
+
 
 st.set_page_config(page_title="📰 News Sentiment Analyzer", layout="centered")
 st.title("📰 Company News Analyzer with Hindi Audio Report")

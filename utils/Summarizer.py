@@ -4,12 +4,14 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 import os
 
+'''
 # NLTK Setup (Safe for Docker)
 NLTK_DATA_DIR = os.path.join(os.path.dirname(__file__), "nltk_data")
 nltk.data.path.append(NLTK_DATA_DIR)
+'''
 
 # Ensure tokenizer downloaded
-#nltk.download("punkt", quiet=True)
+nltk.download("punkt", quiet=True)
 
 def get_summary(text, sentence_count=3):
     """

@@ -60,11 +60,21 @@ docker run -p 8080:8080 news-summarizer
 ## API Details
 The backend is developed using FastAPI and exposes endpoints to:
 
-* Accept a company name as input
-* Return structured JSON output with article titles, summaries, sentiment scores, comparative analysis, and topic overlaps
-* Generate Hindi audio summary
+* That handle news scraping, summarization, sentiment analysis, topic extraction, and audio generation.
+* When a company name is submitted, the API fetches relevant news articles via RSS feeds and summarizes them using the LexRank algorithm.
+* Sentiment analysis is performed using a RoBERTa transformer model, and key topics are extracted using SBERT embeddings and keyword filtering.
+* The API returns a structured JSON response containing article titles, summaries, sentiment scores, topic overlaps, and comparative analysis insights.
+* The API is documented via Swagger UI at /docs, making it easy to test endpoints via Postman or integrate with the frontend application.
 
-Endpoints are documented at /docs via Swagger UI.
+## Architecture & Deployment Strategy
+### Monorepo Structure
+This project is built as a monorepo containing both frontend and backend codebases within a single repository. The goal was to maintain a modular structure while ensuring easy local development.
+
+### Dual Deployment (Hugging Face Spaces)
+To meet Hugging Face’s infrastructure constraints (which allow only one runtime per Space), the application was architected into two separate Spaces — one for the backend API and another for the frontend UI. The backend is a Dockerized FastAPI service that handles all the heavy lifting like scraping, summarization, sentiment analysis, and TTS generation. The frontend is a Streamlit application that interacts with the backend via REST APIs. This decoupled setup ensures modularity, cleaner deployments, and better scalability for future enhancements.
+
+* Frontend (Streamlit UI): https://huggingface.co/spaces/karenrena/newslytics
+* Backend (FastAPI Docker API): https://huggingface.co/spaces/karenrena/newslytics-api
 
 ## Assumptions & Limitations
 * News sources are limited to Bing RSS for simplicity and compatibility.
