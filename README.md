@@ -79,7 +79,8 @@ To meet Hugging Face’s infrastructure constraints (which allow only one runtim
 * Backend (FastAPI Docker API): https://huggingface.co/spaces/karenrena/newslytics-api
 
 ## Assumptions & Limitations
-* News sources are limited to Bing RSS for simplicity and compatibility.
-* Summarization is extractive, not abstractive.
-* Hindi audio generation is a basic implementation using gTTS and can be enhanced using advanced open-source models.
-* The application is optimized for demonstrative purposes and may require scaling strategies for production deployment.
+* News sources are fetched via Bing RSS feeds, which limits coverage to sources indexed by Bing and excludes JavaScript-heavy websites.
+* Summarization is extractive only using LexRank, not abstractive or generative.
+* Hindi audio generation is done using gTTS (Google Text-to-Speech), which relies on an undocumented Google Translate API endpoint. This works fine locally but is prone to rate-limiting (HTTP 429 errors) on shared cloud environments like Hugging Face Spaces, as Google may block requests from shared IPs.
+* The TTS solution is basic and not production-grade. For large-scale deployment or reliability, open-source TTS engines like Coqui TTS, XTTS, or Festival are recommended alternatives.
+* The application is built as a proof-of-concept for demonstration purposes and does not include advanced error-handling, authentication, or production-grade scaling mechanisms.
