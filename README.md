@@ -1,5 +1,7 @@
 # News Summarization and Sentiment Analysis Application
 
+![alt text](image.png)
+
 ## Overview
 
 This application performs news summarization, sentiment analysis, comparative analysis, and generates Hindi audio summaries using text-to-speech. Users can input a company name and receive a structured sentiment report, along with a playable audio output in Hindi.
